@@ -29,7 +29,9 @@ const LayoutBase = () => {
                 </Container>
             </Cabecalho>
 
-            <Outlet />
+            <Container>
+              <Outlet />
+            </Container>
 
             <Rodape>
             <Container>
