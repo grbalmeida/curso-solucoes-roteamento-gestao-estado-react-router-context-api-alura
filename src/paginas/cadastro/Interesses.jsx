@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
@@ -52,11 +53,15 @@ const Interesses = () => {
             />
             <Row>
                 <Col>
-                <Botao variante="secundaria">Anterior</Botao>
+                    <RouterLink to="/cadastro">
+                        <Botao variante="secundaria">Anterior</Botao>
+                    </RouterLink>
                 </Col>
                 <Col>
                 <div style={{ textAlign: 'right' }}>
-                    <Botao variante="primaria">Próxima</Botao>
+                    <RouterLink to="/cadastro/dados-pessoais">
+                        <Botao variante="primaria">Próxima</Botao>
+                    </RouterLink>
                 </div>
                 </Col>
             </Row>
