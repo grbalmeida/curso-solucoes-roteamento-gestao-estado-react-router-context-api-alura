@@ -2,6 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import SelecaoCliente from 'paginas/cadastro/SelecaoCliente';
 import LayoutBaseCadastro from 'paginas/cadastro/LayoutBaseCadastro';
 import LayoutBase from '../paginas/LayoutBase';
+import GrupoRadio from 'componentes/Radio/GrupoRadio';
+
+const opcoes = [{valor: 'TI', label: 'TI e Programação'}, {valor: 'DE', label: 'Design'}];
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +21,10 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: 'interesses',
-                        element: <h1>Interesses</h1>
+                        element: <>
+                            <h1>Interesses</h1>
+                            <GrupoRadio opcoes={opcoes} valor="TI" onChange={() => {}} />
+                        </>
                     },
                     {
                         path: 'dados-pessoais',
