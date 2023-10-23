@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
+import PaginaInicial from '../paginas/PaginaInicial';
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <h1>Freelando</h1>,
+        element: <PaginaInicial />,
         children: [],
     }
 ]);
