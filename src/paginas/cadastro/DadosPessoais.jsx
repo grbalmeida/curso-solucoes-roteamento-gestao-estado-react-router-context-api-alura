@@ -1,4 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
@@ -47,13 +48,22 @@ const DadosPessoais = () => {
         setSenha,
         setSenhaConfirmada,
         setUf,
-        submeterUsuario
+        submeterUsuario,
+        possoSelecionarInteresse
     } = useCadastroUsuarioContexto();
+
+    const navegar = useNavigate();
 
     const finalizarCadastro = (evento) => {
         evento.preventDefault();
         submeterUsuario();
     }
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro');
+        }
+    }, [navegar, possoSelecionarInteresse]);
 
     return (
         <form onSubmit={finalizarCadastro}>

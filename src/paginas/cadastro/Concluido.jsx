@@ -1,4 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Row, Col } from 'react-grid-system';
 
@@ -6,6 +7,7 @@ import { Botao } from 'componentes/Botao/Botao';
 import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
 
 import conclusao from './assets/cliente-concluido.png';
+import { useCadastroUsuarioContexto } from 'contexto/CadastroUsuario';
 
 const ImagemEstilizada = styled.img`
     max-width: 100%;
@@ -13,6 +15,16 @@ const ImagemEstilizada = styled.img`
 `;
 
 const Concluido = () => {
+    
+    const { possoSelecionarInteresse } = useCadastroUsuarioContexto();
+    const navegar = useNavigate();
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro');
+        }
+    }, [navegar, possoSelecionarInteresse]);
+
     return (
         <>
             <CabecalhoCadastro
