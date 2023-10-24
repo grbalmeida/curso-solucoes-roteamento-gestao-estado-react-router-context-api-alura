@@ -4,7 +4,7 @@ import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
 import GrupoRadio from 'componentes/Radio/GrupoRadio';
-import { Tipografia } from 'componentes/Tipografia/Tipografia';
+import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
 
 const opcoes = [
     {
@@ -38,14 +38,10 @@ const Interesses = () => {
 
     return (
         <>
-            <div style={{ textAlign: 'center' }}>
-                <Tipografia variante="h1" componente="h1">
-                    Crie seu cadastro
-                </Tipografia>
-                <Tipografia variante="h3" componente="h2">
-                    Qual a área de interesse?
-                </Tipografia>
-            </div>
+            <CabecalhoCadastro
+                titulo="Crie seu cadastro"
+                subtitulo="Qual a área de interesse?"
+            />
             <GrupoRadio
                 opcoes={opcoes}
                 valor={opcao}

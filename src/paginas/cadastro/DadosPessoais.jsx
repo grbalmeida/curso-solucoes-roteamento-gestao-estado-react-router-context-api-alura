@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
-import { Tipografia } from 'componentes/Tipografia/Tipografia';
 import { CampoTexto } from 'componentes/CampoTexto/CampoTexto';
 import { ListaSuspensa } from 'componentes/ListaSuspensa/ListaSuspensa';
+import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
 
 const estadosBrasileiros = [
     { "text": "Acre", "value": "AC" },
@@ -40,14 +39,10 @@ const estadosBrasileiros = [
 const DadosPessoais = () => {
     return (
         <>
-            <div style={{ textAlign: 'center' }}>
-                <Tipografia variante="h1" componente="h1">
-                    Crie seu cadastro
-                </Tipografia>
-                <Tipografia variante="body" componente="body">
-                    Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho.
-                </Tipografia>
-            </div>
+            <CabecalhoCadastro
+                titulo="Crie seu cadastro"
+                descricao="Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho."
+            />
             <Row>
                 <Col>
                 <CampoTexto titulo="Nome Completo" />

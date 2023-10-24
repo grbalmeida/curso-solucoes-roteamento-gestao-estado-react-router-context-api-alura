@@ -2,8 +2,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Row, Col } from 'react-grid-system';
 
-import { Tipografia } from 'componentes/Tipografia/Tipografia';
 import { Botao } from 'componentes/Botao/Botao';
+import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
 
 import conclusao from './assets/cliente-concluido.png';
 
@@ -15,14 +15,10 @@ const ImagemEstilizada = styled.img`
 const Concluido = () => {
     return (
         <>
-            <div style={{ textAlign: 'center' }}>
-                <Tipografia variante="h1" componente="h1">
-                    Seu perfil está completo
-                </Tipografia>
-                <Tipografia variante="h3" componente="h3">
-                    Agora é só começar a se conectar com os melhores freelancers do mercado!
-                </Tipografia>
-            </div>
+            <CabecalhoCadastro
+                titulo="Seu perfil está completo"
+                subtitulo="Agora é só começar a se conectar com os melhores freelancers do mercado!"
+            />
             <figure>
                 <ImagemEstilizada src={conclusao} alt="" />
             </figure>
