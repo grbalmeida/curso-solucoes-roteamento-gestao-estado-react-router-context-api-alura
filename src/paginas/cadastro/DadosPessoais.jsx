@@ -123,9 +123,7 @@ const DadosPessoais = () => {
                 </Col>
                 <Col>
                 <div style={{ textAlign: 'right' }}>
-                    <RouterLink to="/cadastro/concluido">
-                        <Botao variante="primaria">Próxima</Botao>
-                    </RouterLink>
+                    <Botao variante="primaria">Próxima</Botao>
                 </div>
                 </Col>
             </Row>
