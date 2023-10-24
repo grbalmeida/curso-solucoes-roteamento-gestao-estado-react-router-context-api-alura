@@ -39,10 +39,24 @@ const estadosBrasileiros = [
 
 const DadosPessoais = () => {
 
-    const { usuario, setNomeCompleto } = useCadastroUsuarioContexto();
+    const {
+        usuario,
+        setNomeCompleto,
+        setCidade,
+        setEmail,
+        setSenha,
+        setSenhaConfirmada,
+        setUf,
+        submeterUsuario
+    } = useCadastroUsuarioContexto();
+
+    const finalizarCadastro = (evento) => {
+        evento.preventDefault();
+        submeterUsuario();
+    }
 
     return (
-        <>
+        <form onSubmit={finalizarCadastro}>
             <CabecalhoCadastro
                 titulo="Crie seu cadastro"
                 descricao="Crie seu perfil gratuitamente para começar a trabalhar com os melhores freelancers. Em seguida, você poderá dar mais detalhes sobre suas demandas e sobre sua forma de trabalho."
@@ -58,23 +72,47 @@ const DadosPessoais = () => {
             </Row>
             <Row>
                 <Col lg={4} md={4} sm={4}>
-                <ListaSuspensa titulo="Estado" opcoes={estadosBrasileiros} />
+                <ListaSuspensa
+                    titulo="Estado"
+                    opcoes={estadosBrasileiros}
+                    valor={usuario.uf}
+                    onChange={setUf}
+                />
                 </Col>
                 <Col lg={8} md={8} sm={8}>
-                <CampoTexto titulo="Cidade" />
+                <CampoTexto
+                    titulo="Cidade"
+                    valor={usuario.cidade}
+                    onChange={setCidade}
+                />
                 </Col>
             </Row>
             <Row>
                 <Col>
-                <CampoTexto titulo="E-mail" />
+                <CampoTexto
+                    titulo="E-mail"
+                    valor={usuario.email}
+                    onChange={setEmail}
+                    tipo="email"
+                />
                 </Col>
             </Row>
             <Row>
                 <Col>
-                <CampoTexto titulo="Senha" />
+                <CampoTexto
+                    titulo="Senha"
+                    valor={usuario.senha}
+                    onChange={setSenha}
+                    tipo="password"
+                />
                 </Col>
                 <Col>
-                <CampoTexto titulo="Repita a senha" />
+                <CampoTexto
+                    titulo="Repita a senha"
+                    valor={usuario.senhaConfirmada}
+                    onChange={setSenhaConfirmada}
+                    tipo="password"
+                />
                 </Col>
             </Row>
             <Row>
@@ -92,7 +130,7 @@ const DadosPessoais = () => {
                 </Col>
             </Row>
             
-        </>
+        </form>
     )
 }
 

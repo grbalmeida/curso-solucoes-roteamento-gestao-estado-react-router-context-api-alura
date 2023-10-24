@@ -1,4 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
@@ -34,7 +35,19 @@ const opcoes = [
 ];
 
 const Interesses = () => {
-    const { usuario, setInteresse } = useCadastroUsuarioContexto();
+    const {
+        usuario,
+        setInteresse,
+        possoSelecionarInteresse
+    } = useCadastroUsuarioContexto();
+
+    const navegar = useNavigate();
+
+    useEffect(() => {
+        if (!possoSelecionarInteresse()) {
+            navegar('/cadastro');
+        }
+    }, [navegar, possoSelecionarInteresse]);
 
     return (
         <>
