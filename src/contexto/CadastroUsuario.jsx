@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const usuarioInicial = {
     perfil: '',
@@ -23,7 +23,7 @@ export const CadastroUsuarioContext = createContext({
 });
 
 export const useCadastroUsuarioContexto = () => {
-    return useState(CadastroUsuarioContext);
+    return useContext(CadastroUsuarioContext);
 };
 
 export const CadastroUsuarioProvider = ({ children }) => {

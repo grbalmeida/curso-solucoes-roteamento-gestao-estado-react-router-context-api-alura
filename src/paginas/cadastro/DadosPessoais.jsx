@@ -5,6 +5,7 @@ import { Botao } from 'componentes/Botao/Botao';
 import { CampoTexto } from 'componentes/CampoTexto/CampoTexto';
 import { ListaSuspensa } from 'componentes/ListaSuspensa/ListaSuspensa';
 import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
+import { useCadastroUsuarioContexto } from 'contexto/CadastroUsuario';
 
 const estadosBrasileiros = [
     { "text": "Acre", "value": "AC" },
@@ -37,6 +38,9 @@ const estadosBrasileiros = [
 ];
 
 const DadosPessoais = () => {
+
+    const { setNomeCompleto } = useCadastroUsuarioContexto();
+
     return (
         <>
             <CabecalhoCadastro

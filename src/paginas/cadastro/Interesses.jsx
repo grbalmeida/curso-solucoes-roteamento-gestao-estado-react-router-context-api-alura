@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Row, Col } from 'react-grid-system';
 
 import { Botao } from 'componentes/Botao/Botao';
 import GrupoRadio from 'componentes/Radio/GrupoRadio';
 import CabecalhoCadastro from 'componentes/CabecalhoCadastro/CabecalhoCadastro';
+import { useCadastroUsuarioContexto } from 'contexto/CadastroUsuario';
 
 const opcoes = [
     {
@@ -34,7 +34,7 @@ const opcoes = [
 ];
 
 const Interesses = () => {
-    const [opcao, setOpcao] = useState('');
+    const { usuario, setInteresse } = useCadastroUsuarioContexto();
 
     return (
         <>
@@ -44,8 +44,8 @@ const Interesses = () => {
             />
             <GrupoRadio
                 opcoes={opcoes}
-                valor={opcao}
-                onChange={setOpcao}
+                valor={usuario.interesse}
+                onChange={setInteresse}
             />
             <Row>
                 <Col>
