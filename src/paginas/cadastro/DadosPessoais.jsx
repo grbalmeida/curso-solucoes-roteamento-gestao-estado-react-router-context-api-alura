@@ -39,7 +39,7 @@ const estadosBrasileiros = [
 
 const DadosPessoais = () => {
 
-    const { setNomeCompleto } = useCadastroUsuarioContexto();
+    const { usuario, setNomeCompleto } = useCadastroUsuarioContexto();
 
     return (
         <>
@@ -49,7 +49,11 @@ const DadosPessoais = () => {
             />
             <Row>
                 <Col>
-                <CampoTexto titulo="Nome Completo" />
+                <CampoTexto
+                    titulo="Nome Completo"
+                    valor={usuario.nomeCompleto}
+                    onChange={setNomeCompleto}
+                />
                 </Col>
             </Row>
             <Row>
